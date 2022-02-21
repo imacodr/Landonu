@@ -11,7 +11,7 @@ local BASE_URL = "https://flights.roavhub.org/openapi/flights"
 
 function Landonu:GetFlights(apiKey: string)
     local URL = BASE_URL .. "/get"
-    return fetchu.customRequest(URL, {
+    return fetchu.get(URL, {
             headers = {
                 ["Authorization"] = apiKey
             }
