@@ -1,0 +1,9 @@
+[package]
+name = "imacodr/landon"
+description = "API wrapper for the Landon OpenAPI"
+version = "1.0.0"
+realm = "shared"
+registry = "https://github.com/upliftgames/wally-index"
+
+[dependencies]
+fetchu = "imacodr/fetchu@1.0.4"

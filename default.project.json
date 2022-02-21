@@ -1,0 +1,12 @@
+{
+  "name": "landon",
+  "tree": {
+    "$className": "DataModel",
+    "Landon": {
+      "$path": "src",
+      "Packages": {
+        "$path": "Packages"
+      }
+    }
+  }
+}
