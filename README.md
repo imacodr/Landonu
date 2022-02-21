@@ -1,9 +1,14 @@
 ![banner](./assets/banner.png)
 _no i totally didnt fork the Wii U logo_
 
-# Landonu
+# About
 
-API Wrapper for Landon with Luau
+The Landon OpenAPI Wrapper makes it easy for developers to interact with our Roblox Flight Planner System.
+
+- Simple and easy to use
+- 100% coverage of the Landon OpenAPI
+
+With that its now been brought to Luau.
 
 # Install
 
@@ -13,11 +18,15 @@ https://www.roblox.com/library/8895872898/Landonu
 
 _with Wally_
 
-`Landonu = "imacodr/landon@1.0.0"`
+```toml
+Landonu = "imacodr/landon@1.0.0"
+```
 
 _with Roarn_
 
-`roarn install landonu`
+```bash
+roarn install landonu
+```
 
 _with GitHub_
 
