@@ -3,7 +3,7 @@
   "tree": {
     "$className": "DataModel",
     "ServerScriptService": {
-      "Landon": {
+      "Landonu": {
         "$path": "src",
         "Packages": {
           "$path": "Packages"

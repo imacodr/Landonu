@@ -2,7 +2,7 @@
   "name": "landon",
   "tree": {
     "$className": "DataModel",
-    "Landon": {
+    "Landonu": {
       "$path": "src",
       "Packages": {
         "$path": "Packages"

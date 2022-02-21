@@ -2,6 +2,24 @@
 
 API Wrapper for Landon with Luau
 
+# Install
+
+_with Roblox Marketplace_
+
+https://www.roblox.com/library/8895872898/Landonu
+
+_with Wally_
+
+`Landonu = "imacodr/landon@1.0.0"
+
+_with Roarn_
+
+`roarn install landonu`
+
+_with GitHub_
+
+https://github.com/imacodr/Landon/releases
+
 # Usage
 
 `Landonu:GetFlight(apiKey: string)`
