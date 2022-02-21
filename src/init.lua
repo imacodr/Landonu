@@ -11,7 +11,7 @@ local BASE_URL = "https://flights.roavhub.org/openapi/flights"
 
 function Landonu:GetFlights(apiKey: string)
     local URL = BASE_URL .. "/get"
-    return fetchu.get(URL, {
+    return fetchu.customRequest(URL, {
             headers = {
                 ["Authorization"] = apiKey
             }
@@ -19,7 +19,7 @@ function Landonu:GetFlights(apiKey: string)
 end
 
 type FlightOptions = {
-    flightNumber: string,
+    flightnumber: string,
     aircraft: string,
     departure_airport: string,
     arrival_airport: string,
@@ -29,18 +29,35 @@ type FlightOptions = {
     roavhub_ping: boolean
 }
 
+
+
 function Landonu:CreateFlight(apiKey: string, flightOptions: FlightOptions)
     local URL = BASE_URL .. "/create"
-    return fetchu.post(URL, {
-            body = {apiKey = apiKey, flightOptions}
+
+    local Body = {
+        apikey = apiKey
+    }
+
+    local function assign(t)
+        for k, v in pairs(t) do
+            Body[k] = v
+        end
+    end
+    assign(flightOptions)
+
+    local response = fetchu.post(URL, {
+            body = Body,
+            tablefy = true
     })
+
+    return response.details.flightID
 end
 
 function Landonu:DeleteFlight(apiKey: string, flightID: string)
     local URL = BASE_URL .. "/delete"
     return fetchu.post(URL, {
             body = {
-                apiKey = apiKey,
+                apikey = apiKey,
                 flightID = flightID
             }
     })

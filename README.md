@@ -22,12 +22,12 @@ https://github.com/imacodr/Landon/releases
 
 # Usage
 
-`Landonu:GetFlight(apiKey: string)`
+`Landonu:GetFlights(apiKey: string)` _Currently not working. Waiting an update on the API for it to work once again_
 
 ```lua
 local Landonu = require(path/to/landon)
 
-Landonu:GetFlight("testkey")
+Landonu:GetFlights("testkey")
 ```
 
 `Landonu:CreateFlight(apiKey: string, { flightNumber: string, aircraft: string, departure_airport: string, arrival_airport: string, game_url: string, date: string, time: string, roavhub_ping: boolean })`
