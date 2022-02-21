@@ -32,20 +32,15 @@ type FlightOptions = {
 function Landonu:CreateFlight(apiKey: string, flightOptions: FlightOptions)
     local URL = BASE_URL .. "/create"
     return fetchu.post(URL, {
-            headers = {
-                ["Authorization"] = apiKey
-            },
-            body = flightOptions
+            body = {apiKey = apiKey, flightOptions}
     })
 end
 
 function Landonu:DeleteFlight(apiKey: string, flightID: string)
     local URL = BASE_URL .. "/delete"
     return fetchu.post(URL, {
-            headers = {
-                ["Authorization"] = apiKey
-            },
             body = {
+                apiKey = apiKey,
                 flightID = flightID
             }
     })
