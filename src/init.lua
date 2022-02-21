@@ -2,14 +2,14 @@
 Landon API wrapper for Luau @ imacodr
 --]]
 
-local Landon = {}
-Landon.__index = Landon
+local Landonu = {}
+Landonu.__index = Landonu
 
 local fetchu = require(script.Packages.fetchu)
 
 local BASE_URL = "https://flights.roavhub.org/openapi/flights"
 
-function Landon:GetFlights(apiKey: string)
+function Landonu:GetFlights(apiKey: string)
     local URL = BASE_URL .. "/get"
     return fetchu.get(URL, {
             headers = {
@@ -29,7 +29,7 @@ type FlightOptions = {
     roavhub_ping: boolean
 }
 
-function Landon:CreateFlight(apiKey: string, flightOptions: FlightOptions)
+function Landonu:CreateFlight(apiKey: string, flightOptions: FlightOptions)
     local URL = BASE_URL .. "/create"
     return fetchu.post(URL, {
             headers = {
@@ -39,7 +39,7 @@ function Landon:CreateFlight(apiKey: string, flightOptions: FlightOptions)
     })
 end
 
-function Landon:DeleteFlight(apiKey: string, flightID: string)
+function Landonu:DeleteFlight(apiKey: string, flightID: string)
     local URL = BASE_URL .. "/delete"
     return fetchu.post(URL, {
             headers = {
@@ -51,4 +51,4 @@ function Landon:DeleteFlight(apiKey: string, flightID: string)
     })
 end
 
-return Landon
+return Landonu
