@@ -1,3 +1,6 @@
+![banner](./assets/banner.png)
+_no i totally didnt fork the Wii U logo_
+
 # Landonu
 
 API Wrapper for Landon with Luau
