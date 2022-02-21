@@ -10,7 +10,7 @@ https://www.roblox.com/library/8895872898/Landonu
 
 _with Wally_
 
-`Landonu = "imacodr/landon@1.0.0"
+`Landonu = "imacodr/landon@1.0.0"`
 
 _with Roarn_
 
