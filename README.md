@@ -24,7 +24,7 @@ Landonu = "imacodr/landon@1.0.0"
 
 _with Roarn_
 
-```bash
+```sh-session
 roarn install landonu
 ```
 
