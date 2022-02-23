@@ -48,7 +48,7 @@ Landonu:GetFlights("testkey")
 local Landonu = require(path/to/landon)
 
 Landonu:CreateFlight("testkey", {
-    flightNumber = "test",
+    flightnumber = "test",
     aircraft = "test",
     departure_airport = "test",
     arrival_airport = "testu",
