@@ -9,58 +9,64 @@ local fetchu = require(script.Packages.fetchu)
 
 local BASE_URL = "https://flights.roavhub.org/openapi/flights"
 
-function Landonu:GetFlights(apiKey: string)
-    local URL = BASE_URL .. "/get"
-    return fetchu.get(URL, {
-            headers = {
-                ["Authorization"] = apiKey
-            }
-    })
+function Landonu.new(apiKey: string)
+	local self = setmetatable({}, Landonu)
+	self.apiKey = apiKey
+	return self
 end
 
+function Landonu:GetFlights()
+	local URL = BASE_URL .. "/get"
+	return fetchu.get(URL, {
+		headers = {
+			["Authorization"] = self.apiKey,
+		},
+	})
+end
 type FlightOptions = {
-    flightnumber: string,
-    aircraft: string,
-    departure_airport: string,
-    arrival_airport: string,
-    game_url: string,
-    date: string,
-    time: string,
-    roavhub_ping: boolean
+	flightnumber: string,
+	aircraft: string,
+	departure_airport: string,
+	arrival_airport: string,
+	game_url: string,
+	date: string,
+	time: string,
+	roavhub_ping: boolean,
 }
 
+function Landonu:CreateFlight(flightOptions: FlightOptions)
+	local URL = BASE_URL .. "/create"
 
+	local Body = {}
 
-function Landonu:CreateFlight(apiKey: string, flightOptions: FlightOptions)
-    local URL = BASE_URL .. "/create"
+	local function assign(t)
+		for k, v in pairs(t) do
+			Body[k] = v
+		end
+	end
+	assign(flightOptions)
 
-    local Body = {
-        apikey = apiKey
-    }
+	local response = fetchu.post(URL, {
+		body = Body,
+		headers = {
+			["Authorization"] = self.apiKey,
+		},
+		tablefy = true,
+	})
 
-    local function assign(t)
-        for k, v in pairs(t) do
-            Body[k] = v
-        end
-    end
-    assign(flightOptions)
-
-    local response = fetchu.post(URL, {
-            body = Body,
-            tablefy = true
-    })
-
-    return response.details.flightID
+	return response.details.flightID
 end
 
-function Landonu:DeleteFlight(apiKey: string, flightID: string)
-    local URL = BASE_URL .. "/delete"
-    return fetchu.post(URL, {
-            body = {
-                apikey = apiKey,
-                flightID = flightID
-            }
-    })
+function Landonu:DeleteFlight(flightID: string)
+	local URL = BASE_URL .. "/delete"
+	return fetchu.post(URL, {
+		headers = {
+			["Authorization"] = self.apiKey,
+		},
+		body = {
+			flightID = flightID,
+		},
+	})
 end
 
 return Landonu
